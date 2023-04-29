@@ -11,7 +11,7 @@ function GuestLanding() {
         <div className='flex flex-col items-center justify-center h-full w-full mt-10'>
             <div className='flex items-center flex-col gap-2'>
                 <h1 className='text-black font-bold   text-6xl  font-poppins leading-relaxed  '>
-                Still paying to share links?
+            All your platforms. One page.?
                 </h1>
                 <h2 className='text-gray-500 font-thin text-xl font-poppins'>Meet <span className='text-black underline underline-offset-4'>Linkfree.com</span>, a modern, lightning quick and forever free alternative! </h2>
 

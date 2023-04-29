@@ -108,7 +108,7 @@ function SocialMediaBoxes({ title }: { title: string }) {
                 {name === 'Apple Music' && <FaItunesNote className={iconColorClasses} color={color} size={40} />}
                 {name === 'Custom' && <AiOutlineQuestion className={iconColorClasses} color={color} size={40} />}
 
-                <ModalBoxes id={`${name.toLowerCase()}-modal`} title={`LINK YOUR ${name.toUpperCase()}`} />
+                <ModalBoxes name={name} id={`${name.toLowerCase()}-modal`} title={`LINK YOUR ${name.toUpperCase()}`} />
             </div>
         );
     }

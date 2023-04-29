@@ -1,8 +1,10 @@
 import React from 'react'
-import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineCheck } from 'react-icons/ai'
+import { AiFillInfoCircle, AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlineCheck } from 'react-icons/ai'
 import SocialMediaBoxes from './SocialMediaBoxes'
+import FormStepControl from './FormStepControl'
 
 function FormPageTwo({ steps, setSteps }: { steps: number, setSteps: any }) {
+
     return (
         <div className='flex w-full justify-between relative h-full flex-col mt-0 border-b-8 min-h-[550px] border-2 border-black bg-white rounded-md'>
 
@@ -13,11 +15,12 @@ function FormPageTwo({ steps, setSteps }: { steps: number, setSteps: any }) {
                     </div>
                 </div>
                 <div className='p-4'>
-                    <h2 className='text-white xl:text-xl font-black tracking-wider font-main border border-white rounded-full p-6 xl:h-14 xl:w-14 h-8 w-8 flex items-center justify-center bg-black'>{steps}/3</h2>
+                    <h2 className=' xl:text-xl font-black tracking-wider font-secondary border-2 border-black rounded-md px-4 py-2.5 flex items-center justify-center text-black'>{steps}/3</h2>
                 </div>
             </div>
 
-            <div className='flex items-center p-6 gap-8 mt-0 xl:gap-12 w-full flex-wrap'>
+            <div className='flex flex-col w-full '>
+                <div className='flex p-6 gap-8 mt-0 xl:gap-12 w-full flex-wrap'>
                 <SocialMediaBoxes title='Facebook' />
                 <SocialMediaBoxes title='Instagram' />
                 <SocialMediaBoxes title='Twitter' />
@@ -29,23 +32,12 @@ function FormPageTwo({ steps, setSteps }: { steps: number, setSteps: any }) {
                 <SocialMediaBoxes title='Soundcloud' />
                 <SocialMediaBoxes title='Apple Music' />
                 <SocialMediaBoxes title='Custom' />
-            </div>
-
-            <div className='flex items-center justify-between w-full p-7 '>
-                <div className=''>
-                    <button onClick={() => setSteps(steps - 1)} className='text-black text-base xl:text-3xl relative   font-black flex xl:tracking-wider font-main uppercase w-auto items-center'>
-                        <AiOutlineArrowLeft color='black' size={50} />
-                    </button>
-
                 </div>
 
-                <div className=''>
-                    <button onClick={() => setSteps(steps + 1)} className='text-black text-base xl:text-3xl relative   font-black flex xl:tracking-wider font-main uppercase w-auto items-center'>
-                        <AiOutlineArrowRight color='black' size={50} />
-                    </button>
 
-                </div>
             </div>
+
+            <FormStepControl steps={steps} setSteps={setSteps} />
 
         </div>
     )

@@ -51,10 +51,10 @@ function NewPage() {
       <Navigation />
 
 
-      {steps === 1 &&
+      {/* {steps === 1 &&
         <FormPageOne userDetails={userDetails} setUserDetails={setUserDetails} steps={steps} setSteps={setSteps} />
-      }
-      {steps === 2 &&
+      } */}
+      {steps === 1 &&
         <FormPageTwo steps={steps} setSteps={setSteps} />
       }
 

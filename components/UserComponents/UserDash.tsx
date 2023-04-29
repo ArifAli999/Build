@@ -32,17 +32,17 @@ function UserDash() {
   return (
     <div className='w-full h-full p-0 flex flex-col'>
       <div className=''>
-        <p className='uppercase font-bold text-xl tracking-wider pl-2'>/Dashboard</p>
+        <p className='uppercase font-bold font-main text-xl tracking-wider pl-2'>HOME</p>
       </div>
 
       <div className='flex flex-col gap-4 mt-4  items-center min-h-[450px] justify-center rounded-md border border-black'>
         <div className='flex items-center flex-col justify-center'>
-          <p className=' font-normal text-xl tracking-wider pl-6'>CLAIM YOUR PAGE </p>
+          <p className=' font-normal text-xl font-secondary tracking-wider pl-6'>SIMPLY CLAIM YOUR PAGE TO GET STARTED </p>
           <div className='flex items-center gap-4'>
             <div className='flex mt-8 mb-8  rounded-md border border-black border-b-2 min-w-[75%] mx-auto gap-0 hover:border-b-4 transition-all duration-150 ease-linear '>
-              <div className='bg-gray-300 h-full p-4 rounded-l-md border-r border-black font-poppins font-bold tracking-wider text-sm'>linkfree.com/</div>
+              <div className='bg-gray-200 h-full p-4 rounded-l-md border-r border-black font-secondary font-bold tracking-wider text-sm'>linkfree.com/</div>
               <div className='flex items-center pl-4 w-full '>
-                <input className=' w-full h-full rounded focus:outline-none bg-transparent' placeholder='Claim your page'
+                <input className=' w-full h-full rounded focus:outline-none bg-transparent font-secondary lowercase' placeholder='Claim your page'
                   onChange={(e) => setInput(e.target.value)}
                 />
               </div>
