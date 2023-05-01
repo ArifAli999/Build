@@ -1,10 +1,10 @@
-import React from 'react'
-import { AiFillFacebook, AiFillPlusCircle, AiFillYoutube, AiOutlineInstagram, AiOutlinePlus, AiOutlineQuestion, AiOutlineTwitter } from 'react-icons/ai'
-import ModalBoxes from './ModalBoxes';
 import { useRouter } from 'next/router';
-import { FaItunes, FaItunesNote, FaPinterest, FaSoundcloud, FaSpotify, FaTiktok, FaTwitch } from 'react-icons/fa';
+import React from 'react'
+import { AiOutlinePlus, AiFillFacebook, AiOutlineInstagram, AiOutlineTwitter, AiFillYoutube, AiOutlineQuestion } from 'react-icons/ai';
+import { FaTiktok, FaPinterest, FaTwitch, FaSpotify, FaSoundcloud, FaItunesNote } from 'react-icons/fa';
+import ModalBoxes from './ModalBoxes';
 
-function SocialMediaBoxes({ title }: { title: string }) {
+function SmallSocialMediaBoxes({ title, link }: { title: string, link: string }) {
     const router = useRouter();
 
     function generateIcon(name: string) {
@@ -87,15 +87,12 @@ function SocialMediaBoxes({ title }: { title: string }) {
                 break;
         }
 
-        const iconClasses = `relative text-center flex items-center justify-center p-2 w-full h-full ${bgColor} border-2 ${borderColor} ${borderBColor} border-b-4 rounded-lg`;
-        const plusClasses = 'absolute -right-2 -top-4 bg-black w-10 h-10 p-2 rounded-full flex items-center justify-center';
+        const iconClasses = `relative text-center flex items-center justify-center p-2 w-full h-full ${bgColor} border-2 ${borderColor} ${borderBColor} border-b-4 rounded-lg overflow-hidden `;
         const iconColorClasses = `p-0.5 flex items-center text-${color}`;
 
         return (
             <div className={iconClasses}>
-                <a href={`#${name.toLowerCase()}-modal`} className={plusClasses}>
-                    <AiOutlinePlus size={20} color={color} />
-                </a>
+
                 {name === 'Facebook' && <AiFillFacebook className={iconColorClasses} color={color} size={40} />}
                 {name === 'Instagram' && <AiOutlineInstagram className={iconColorClasses} color={color} size={40} />}
                 {name === 'Twitter' && <AiOutlineTwitter className={iconColorClasses} color={color} size={40} />}
@@ -113,10 +110,8 @@ function SocialMediaBoxes({ title }: { title: string }) {
         );
     }
 
-
-
     return (
-        <><div className='flex flex-col items-center justify-between gap-4  min-h-[60px] w-[100px] h-[100px] rounded-lg'>
+        <div className='flex flex-col items-center justify-between gap-4  min-h-[60px] w-[80px] h-[80px] rounded-lg overflow-hidden'>
 
             {generateIcon(title)}
 
@@ -124,8 +119,7 @@ function SocialMediaBoxes({ title }: { title: string }) {
 
         </div>
 
-        </>
     )
 }
 
-export default SocialMediaBoxes
+export default SmallSocialMediaBoxes

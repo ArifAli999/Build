@@ -8,6 +8,7 @@ import UserDetailsForm from '../../components/newPage/UserDetailsForm';
 import InputComponents from '../../components/newPage/InputComponents';
 import FormPageOne from '../../components/newPage/FormPageOne';
 import FormPageTwo from '../../components/newPage/FormPageTwo';
+import FormPageThree from '../../components/newPage/FormPageThree';
 
 function NewPage() {
   const [steps, setSteps] = useState(1);
@@ -46,9 +47,9 @@ function NewPage() {
 
   return (
     <main
-      className={`flex flex-col p-8 w-full gap-10 justify-between`}
+      className={`flex flex-col p-8 w-full gap-10 justify-between overflow-hidden scrollbar-none`}
     >
-      <Navigation />
+      {steps != 2 ? <Navigation /> : null} 
 
 
       {/* {steps === 1 &&
@@ -57,6 +58,10 @@ function NewPage() {
       {steps === 1 &&
         <FormPageTwo steps={steps} setSteps={setSteps} />
       }
+
+      {steps === 2 &&
+        <FormPageThree steps={steps} setSteps={setSteps} />
+      } 
 
 
     </main>

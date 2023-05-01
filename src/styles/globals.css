@@ -28,3 +28,21 @@ body {
 input[disabled] {
   pointer-events: none;
 }
+
+.artboard.phone-1 {
+    width: 220px;
+    height: 468px;
+}
+.artboard.artboard-demo.phone-1.xl\:phone-2{
+    width: 360px;
+    height: 695px;
+}
+
+
+
+.scrollbar-none {
+    scrollbar-width: none !important;
+}
+.scrollbar-none::-webkit-scrollbar {
+    display: none !important;
+}

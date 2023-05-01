@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@types/node": "18.16.1",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
@@ -26,5 +27,8 @@
     "typescript": "5.0.4",
     "valtio": "^1.10.4",
     "zustand": "^4.3.7"
+  },
+  "devDependencies": {
+    "tailwind-scrollbar": "^3.0.0"
   }
 }

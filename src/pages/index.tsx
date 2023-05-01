@@ -10,7 +10,17 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+
+  if (status === 'loading') return (
+    <main
+      className={`flex min-h-screen flex-col p-8 w-full items-center justify-between`}
+    >
+      <div className='flex items-center justify-center w-full h-full'>
+        <h2 className='text-2xl font-secondary text-black font-black'>Loading...</h2>
+      </div>
+    </main>
+  )
 
 
 
