@@ -1,7 +1,7 @@
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Tab, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
-export default function PageSetupModal({ openModal, closeModal, isOpen, setIsOpen, title }: { openModal: any, closeModal: any, isOpen: any, setIsOpen: any, title: any }) {
+export default function PageSetupModal({ closeModal, isOpen, setIsOpen, title }: { closeModal: any, isOpen: any, setIsOpen: any, title: any }) {
 
 
     function generateTitle(name: string) {
@@ -24,6 +24,30 @@ export default function PageSetupModal({ openModal, closeModal, isOpen, setIsOpe
         }
     }
 
+    function classNames(...classes: string[]) {
+        return classes.filter(Boolean).join(' ')
+    }
+
+
+    function generateSubTitle(name: string) {
+        switch (name) {
+            case 'Add':
+                return 'choose the components you would like to be displayed on your page.'
+                break;
+            case 'Edit':
+                return 'you can edit the components you have added to your page.'
+                break;
+            case 'Theme':
+                return 'choose the theme for your page or build your own unique brand theme.'
+                break;
+            case 'Order':
+                return 'select the preferred order of your components.'
+                break;
+            default:
+                break;
+
+        }
+    }
 
     return (
         <>
@@ -40,11 +64,11 @@ export default function PageSetupModal({ openModal, closeModal, isOpen, setIsOpe
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-black bg-opacity-25" />
+                        <div className="fixed inset-0 bg-black bg-opacity-70" />
                     </Transition.Child>
 
-                    <div className="fixed inset-0 overflow-y-auto">
-                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                    <div className="fixed inset-0 overflow-y-auto s">
+                        <div className="flex min-h-full  items-center justify-center p-4 text-center">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -54,28 +78,65 @@ export default function PageSetupModal({ openModal, closeModal, isOpen, setIsOpe
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white border-2 border-b-4 border-black p-6 text-left align-middle shadow-xl transition-all ease-linear">
                                     <Dialog.Title
-                                        as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900"
+                                        as="div"
+                                        className="text-lg font-secondary flex items-center justify-between w-full uppercase font-medium leading-6 text-gray-900"
                                     >
                                         {generateTitle(title)}
+
+                                        <p className="text-xs text-black font-secondary font-semiold cursor-pointer -mt-0.5" onClick={closeModal}> [close]</p>
+
                                     </Dialog.Title>
-                                    <div className="mt-2">
-                                        <p className="text-sm text-gray-500">
-                                            Your payment has been successfully submitted. We’ve sent
-                                            you an email with all of the details of your order.
+                                    <div className="mt-0.5 mb-4">
+                                        <p className="text-xs text-gray-500">
+                                            {generateSubTitle(title)}
                                         </p>
                                     </div>
 
-                                    <div className="mt-4">
-                                        <button
-                                            type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={closeModal}
-                                        >
-                                            Got it, thanks! {title && title}
-                                        </button>
+                                    <div className="mt-2">
+                                        <Tab.Group>
+                                            <Tab.List className='flex justify-between items-center space-x-1 border-2 border-b-4 border-black '>
+                                                <Tab className={({ selected }) =>
+                                                    classNames(
+                                                        'w-full   text-sm font-medium  ',
+                                                        ' focus:outline-none focus:ring-0',
+                                                        selected
+                                                            ? 'bg-black p-2.5 text-white'
+                                                            : 'text-black p-2 hover:bg-white/[0.12] hover:text-black'
+                                                    )
+                                                }>General</Tab>
+                                                <Tab className={({ selected }) =>
+                                                    classNames(
+                                                        'w-full   text-sm font-medium  ',
+                                                        'focus:ring-0',
+                                                        selected
+                                                            ? 'bg-black p-2.5 text-white'
+                                                            : 'text-black p-2 hover:bg-white/[0.12] hover:text-black'
+                                                    )
+                                                }>Profiles</Tab>
+
+                                            </Tab.List>
+                                            <Tab.Panels>
+                                                <Transition
+                                                    show={true}
+                                                    enter="transition-opacity duration-75"
+                                                    enterFrom="opacity-0"
+                                                    enterTo="opacity-100"
+                                                    leave="transition-opacity duration-750"
+                                                    leaveFrom="opacity-100"
+                                                    leaveTo="opacity-0"
+                                                    appear={true}
+                                                >
+                                                    <Tab.Panel>
+                                                        pls animate???</Tab.Panel>
+
+                                                </Transition>
+                                                <Tab.Panel>Content 2</Tab.Panel>
+
+
+                                            </Tab.Panels>
+                                        </Tab.Group>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
